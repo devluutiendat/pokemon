@@ -1,0 +1,3 @@
+[submodule "pokemon"]
+	path = pokemon
+	url = https://github.com/devluutiendat/pokemon.git

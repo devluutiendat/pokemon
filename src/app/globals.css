@@ -1,0 +1,257 @@
+:root {
+  --color : rgb(89 173 214);
+  --max-width: 1100px;
+  --border-radius: 12px;
+  --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
+    "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
+    "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
+
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+
+  --primary-glow: conic-gradient(
+    from 180deg at 50% 50%,
+    #16abff33 0deg,
+    #0885ff33 55deg,
+    #54d6ff33 120deg,
+    #0071ff33 160deg,
+    transparent 360deg
+  );
+  --secondary-glow: radial-gradient(
+    rgba(255, 255, 255, 1),
+    rgba(255, 255, 255, 0)
+  );
+
+  --tile-start-rgb: 239, 245, 249;
+  --tile-end-rgb: 228, 232, 233;
+  --tile-border: conic-gradient(
+    #00000080,
+    #00000040,
+    #00000030,
+    #00000020,
+    #00000010,
+    #00000010,
+    #00000080
+  );
+
+  --callout-rgb: 238, 240, 241;
+  --callout-border-rgb: 172, 175, 176;
+  --card-rgb: 180, 185, 188;
+  --card-border-rgb: 131, 134, 135;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+
+    --primary-glow: radial-gradient(rgba(1, 65, 255, 0.4), rgba(1, 65, 255, 0));
+    --secondary-glow: linear-gradient(
+      to bottom right,
+      rgba(1, 65, 255, 0),
+      rgba(1, 65, 255, 0),
+      rgba(1, 65, 255, 0.3)
+    );
+
+    --tile-start-rgb: 2, 13, 46;
+    --tile-end-rgb: 2, 5, 19;
+    --tile-border: conic-gradient(
+      #ffffff80,
+      #ffffff40,
+      #ffffff30,
+      #ffffff20,
+      #ffffff10,
+      #ffffff10,
+      #ffffff80
+    );
+
+    --callout-rgb: 20, 20, 20;
+    --callout-border-rgb: 108, 108, 108;
+    --card-rgb: 100, 100, 100;
+    --card-border-rgb: 200, 200, 200;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  color: white;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  background-image: url('/Night\ sky\ Galaxy\ Wallpaper\ -\ EnJpg.png');
+  padding: 0 2%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}
+.point{
+  background-color: aqua;
+}
+.about {
+  border: 2px solid  var(--color) ;
+  margin: 1%;
+  width: 23%;
+  box-shadow: rgba(89 173 214) 0px 5px 15px;
+  border-radius: 10%;
+}
+.section{
+  display: flex;
+  flex-wrap: wrap;
+}
+.App{
+  padding: 0 2%;
+}
+.about div{
+  margin: 8%;
+}
+.App input
+{  padding: 1% 15%;
+  margin: 5% 10%;
+  border-radius: 50px;
+  position: relative;
+}
+.detail img{
+  background-image: url('/random_center_bg.png');
+  background-size: cover;
+}
+.aboutPoke div{
+  background-image: url('/random_center_bg.png');
+  background-size: cover;
+  filter: drop-shadow(0 0 0.75rem var(--color));
+  padding: 35px 40px;
+  position: relative;
+}
+.App button{
+  box-shadow:0 0 15px 15px rgb(89 173 214 /0.5);
+  padding:1% 2%;
+  border: none;
+  background-color: var(--color);
+  border-radius: 5px;
+}
+.App button:hover{
+  filter: drop-shadow(0 0 4rem rgb(4, 166, 247));
+  background-color: rgb(29 131 181);
+}
+path{
+  color: var(--color);
+}
+.name{
+  margin: 3% 36%;
+  text-align: center;
+  padding: 1% 3%;
+  border-radius: 5% 5% 100% 100%;
+  font-size: xx-large;
+  text-shadow: 1px 1px 2px var(--color), 0 0 1em blue, 0 0 0.2em blue;
+}
+.chain .section .aboutPoke div::after {
+  content: ">>";
+  width: 100%;
+  position: absolute;
+  color: aquamarine;
+  top: 50%;
+  right: -125%;
+  font-size: xxx-large;
+}
+.chain .section .aboutPoke{
+  margin: 5%;
+}
+.chain .section .aboutPoke:last-child div::after {
+  content: "";
+  display: inline-block;
+  width: 50%;
+  position: absolute;
+  color: aquamarine;
+  top: 0;
+  right: 0;
+}
+.radom{
+  display:grid;
+  align-items: center;
+  grid-template-columns: auto auto auto auto auto auto auto;
+  grid-template-rows: auto auto;
+}
+.headdetail {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin-top: 5%;
+  justify-content: space-between;
+}
+.path{
+  width: 30%;
+  font-size: x-large;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10%;
+  padding: 1%;
+  border: 1px solid var(--color);
+  border-radius: 50px;
+  box-shadow: 0 0 15px 3px rgb(89 173 214 /0.8);
+}
+.pathleft a {
+  border: 1px solid aqua;
+  border-radius: 50%;
+  padding: 1%;
+}
+.detail{
+  display: flex;
+  flex-wrap: wrap;
+}
+.detail{
+  flex-wrap: wrap;
+  display: flex;
+  margin-bottom: 10%;
+}
+.detail .type{
+  padding: 1% 10%;
+}
+.type{
+  display:inline-block;
+  margin:20px 25px;
+  padding:3px 15px;
+  border-radius:10px;
+}
+.base div{
+  font-size: x-large;
+  margin: 8%;
+}
+.base{
+  margin: 8% 0 0 1.4%;
+  height: 100%;
+}
+.detail .name{
+  padding: 0;
+}
+.des{
+  background: transparent;
+  border: transparent;
+} 
+.stat{
+  display: flex;
+  text-align: center;
+  width:55%;
+  flex-wrap: wrap;
+  margin-left: 5%;
+}
+.stat div{
+  width: 16%;
+}
