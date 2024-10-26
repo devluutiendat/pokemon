@@ -1,27 +1,4 @@
-
-export interface Pokemon {
-    id: number;
-    name: string;
-    sprites: {
-        other: {
-            'official-artwork': {
-                front_default: string;
-            }
-        }
-    }
-    types: Type[];
-    species: {
-        url: string;
-    }
-}
-
-interface Type {
-    type: {
-        name: string;
-        url: string;
-    }
-}
-
+import { Pokemon } from "./typeDefault";
 export interface detail extends Pokemon {
     height: number;
     weight: number;
