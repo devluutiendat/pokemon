@@ -1,5 +1,6 @@
 import { Props } from "@/type/typeDefault";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Radomlist(props: Props) {
   const { pokemons } = props;
@@ -7,7 +8,7 @@ export default function Radomlist(props: Props) {
   return (
     <div className="radom">
       {pokemons.map((element, index) => (
-        <a
+        <Link
           className="aboutPoke"
           href={`/${element.id}`}
           key={element.id}
@@ -34,7 +35,7 @@ export default function Radomlist(props: Props) {
               }
             />
           </div>
-        </a>
+        </Link>
       ))}
     </div>
   );

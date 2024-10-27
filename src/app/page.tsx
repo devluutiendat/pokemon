@@ -1,15 +1,12 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { Pokemon } from "../type/typeDefault";
-import Radomlist from "../componemt/radomPokemon";
+import Radomlist from "../componemt/homePage/radomPokemon";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import List from "../componemt/list";
-import { handleRandom } from "@/utils/radomNumber";
-import {
-  fetchPokemonById,
-  fetchPokemonListByLink,
-} from "@/services/pokemonServices";
+import List from "../componemt/List";
+import { handleRandom } from "@/utils/RadomNumber";
+import { fetchPokemonById, fetchPokemonListByLink } from "@/services/Pokemon";
+import Link from "next/link";
 
 const App: React.FC = () => {
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
@@ -33,12 +30,6 @@ const App: React.FC = () => {
     }
   };
 
-  const loadMorePokemon = () => {
-    if (nextUrl) {
-      fetchPokemon(nextUrl);
-    }
-  };
-
   const fetchRandom = async () => {
     try {
       const randomIds = handleRandom({
@@ -52,9 +43,14 @@ const App: React.FC = () => {
       if (radomnumber.length == 0) {
         setdefaultPokeRadom(responses);
       }
-      console.log(pokemons);
     } catch (error) {
       console.error("Error fetching random Pokémon:", error);
+    }
+  };
+
+  const loadMorePokemon = () => {
+    if (nextUrl) {
+      fetchPokemon(nextUrl);
     }
   };
 
@@ -79,7 +75,7 @@ const App: React.FC = () => {
         onChange={(e) => setsearch(e.target.value)}
         placeholder="enter id"
       />
-      <a
+      <Link
         className="fa-solid fa-magnifying-glass"
         style={{
           position: "absolute",
@@ -89,7 +85,7 @@ const App: React.FC = () => {
           fontSize: "xx-large",
         }}
         href={`/${search}`}
-      ></a>
+      ></Link>
       <button
         onClick={() => {
           setformart(!formart), setPokemons([]), setradomPokemon([]);

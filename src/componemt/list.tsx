@@ -1,6 +1,7 @@
 import { Props } from "../type/typeDefault";
-import { typeColors } from "@/componemt/typeColor";
-import { formatId } from "@/componemt/formartId";
+import { typeColors } from "@/utils/TypeColor";
+import { formatId } from "@/utils/FormartId";
+import Link from "next/link";
 
 export default function List(props: Props) {
   const { pokemons } = props;
@@ -8,7 +9,7 @@ export default function List(props: Props) {
   return (
     <div className="section">
       {pokemons.map((element) => (
-        <a
+        <Link
           href={`/${element.id}`} // Using anchor tag with href for SEO-friendly links
           className="aboutPoke about"
           key={element.id}
@@ -50,7 +51,7 @@ export default function List(props: Props) {
               {item.type.name}
             </p>
           ))}
-        </a>
+        </Link>
       ))}
     </div>
   );
