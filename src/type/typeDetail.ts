@@ -7,9 +7,7 @@ export interface detail extends Pokemon {
 }
 
 interface Stat {
-    stat: {
-
-        
+    stat: {  
         name: string;
     }
     base_stat: number;

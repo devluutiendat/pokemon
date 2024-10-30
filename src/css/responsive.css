@@ -1,0 +1,81 @@
+
+  
+  @media (max-width: 768px) {
+    .radom {
+      grid-template-columns: repeat(5, 1fr); /* 3 columns for smaller screens */
+    }
+    .search{
+        flex-wrap:wrap ;
+    }
+    .about{
+        width: 30%;
+    }
+    .path{
+      font-size: large;
+    }
+    .base div{
+      font-size:large;
+    }
+    .detail .type{
+      margin: 0;
+    }
+    .descript{
+      flex-wrap: wrap;
+    }
+    .descript div{
+      width: auto;
+    }
+    .secondDetail{
+      flex-wrap: wrap;
+    }
+    .secondDetail .descript{
+      width: 100%;
+    }
+    .secondDetail .stat{
+      width: 100%;
+    }
+    .chain .section .aboutPoke{
+      margin-right: 0;
+    }
+    .chain .section .aboutPoke::after {
+      right: -50%;
+    }
+  }
+  
+  @media (max-width: 425px) {
+    .about{
+        width: 80%;
+    }
+    .about p{
+        font-size:medium !important;
+    }
+    .about div{
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    .detail{
+      flex-direction: column;
+    }
+    .radom {
+      grid-template-columns: 1fr; /* 1 column for mobile devices */
+    }
+    .detail .typeDetail {
+      width: 100%;
+    }
+    .detail .base {
+      width: 100%;
+    }
+    
+    .chain .section .aboutPoke::after {
+      content: "" ;
+    }
+    .path{
+      flex-wrap: wrap;
+    }
+    .headdetail .name{
+      padding: 5px !important;
+    }
+  }
+  
+
+

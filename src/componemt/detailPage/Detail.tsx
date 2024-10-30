@@ -1,7 +1,7 @@
 import { detail } from "@/type/typeDetail";
 import { typeColors } from "@/utils/TypeColor";
+import Image from "next/image";
 import React from "react";
-
 interface PokemonDetailProps {
   pokemonDetail: detail | null;
   descriptions: string[];
@@ -20,11 +20,11 @@ export const PokemonDetail: React.FC<PokemonDetailProps> = ({
   setDesChoice,
 }) => {
   return (
-    <div>
+    <div className="mainDetail">
       <div className="detail">
-        <div style={{ width: "35%" }}>
-          <div>
-            <p className="name">type</p>
+        <div className="typeDetail">
+          <p className="name">type</p>
+          <div className="groupType">
             {pokemonDetail?.types.map((item, index) => (
               <p
                 key={index}
@@ -38,9 +38,9 @@ export const PokemonDetail: React.FC<PokemonDetailProps> = ({
               </p>
             ))}
           </div>
+          <p className="name">disavantage</p>
 
-          <div>
-            <p className="name">disavantage</p>
+          <div className="groupType">
             {disadvantage.map((item) => (
               <p
                 key={item}
@@ -52,13 +52,21 @@ export const PokemonDetail: React.FC<PokemonDetailProps> = ({
             ))}
           </div>
         </div>
-
-        <img
-          height={400}
-          width={400}
-          src={pokemonDetail?.sprites.other["official-artwork"].front_default}
-        />
-        <div className="detail base">
+        <div style={{ width: "350px" }}>
+          <Image
+            height={300}
+            width={300}
+            priority={true}
+            sizes="100vw"
+            alt={pokemonDetail ? pokemonDetail?.name : ""}
+            src={
+              pokemonDetail
+                ? pokemonDetail?.sprites.other["official-artwork"].front_default
+                : "/random_center_bg.png"
+            }
+          />
+        </div>
+        <div className="base">
           <div>
             <p style={{ color: "rgb(89 173 214)" }}>height</p>
             <p>{pokemonDetail?.height}</p>
@@ -79,17 +87,9 @@ export const PokemonDetail: React.FC<PokemonDetailProps> = ({
           </div>
         </div>
       </div>
-      <div style={{ display: "flex", flexWrap: "wrap" }}>
-        <div
-          style={{
-            width: "40%",
-            display: "flex",
-            flexWrap: "wrap",
-            gap: "1%",
-            padding: "0 3%",
-          }}
-        >
-          <p className="name" style={{ margin: "0" }}>
+      <div className="secondDetail">
+        <div className="descript">
+          <p className="name" style={{ padding: "0 3rem" }}>
             descript
           </p>
           {Array.from({ length: descriptions.length }, (_, index) => (
@@ -106,16 +106,22 @@ export const PokemonDetail: React.FC<PokemonDetailProps> = ({
               }
               onClick={() => setDesChoice(index)}
             >
-              <img src="/random_center_bg.png" alt="" width={50} height={50} />
+              <Image
+                src="/random_center_bg.png"
+                alt=""
+                width={50}
+                height={50}
+              />
             </button>
           ))}
           <span style={{ fontSize: "x-large", margin: "3% 1%" }}>
             {descriptions[desChoice]}
           </span>
         </div>
-
         <div className="stat">
-          <p className="name">stat</p>
+          <p className="name" style={{ width: "100%", padding: "5px 0" }}>
+            stat
+          </p>
           {pokemonDetail?.stats.map((item, index) => (
             <div
               key={index}

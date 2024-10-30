@@ -10,7 +10,7 @@ export const fetchPokemonDetail = async (id: string): Promise<detail> => {
 };
 
 //fecth disavantage
-export const disadvantage = async (pokemonDetail: detail | null) => {
+export const fetchDisadvantage = async (pokemonDetail: detail | null) => {
   if (pokemonDetail == null) {
     return [];
   }

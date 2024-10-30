@@ -2,8 +2,10 @@ import { Props } from "../type/typeDefault";
 import { typeColors } from "@/utils/TypeColor";
 import { formatId } from "@/utils/FormartId";
 import Link from "next/link";
+import Image from "next/image";
+import { memo } from "react";
 
-export default function List(props: Props) {
+const List = memo((props: Props) => {
   const { pokemons } = props;
 
   return (
@@ -15,9 +17,11 @@ export default function List(props: Props) {
           key={element.id}
         >
           <div>
-            <img
-              width={170}
-              height={170}
+            <Image
+              width={100}
+              height={100}
+              priority={true}
+              sizes="100vw"
               src={
                 element.sprites.other["official-artwork"].front_default || ""
               }
@@ -40,19 +44,23 @@ export default function List(props: Props) {
           <p style={{ padding: "3px 15px", fontSize: "xx-large" }}>
             {element.name}
           </p>
-          {element.types.map((item) => (
-            <p
-              key={item.type.name}
-              className="type"
-              style={{
-                backgroundColor: typeColors[item.type.name.toLowerCase()],
-              }}
-            >
-              {item.type.name}
-            </p>
-          ))}
+          <div style={{ background: "none", justifyContent: "space-around" }}>
+            {element.types.map((item) => (
+              <p
+                key={item.type.name}
+                className="type"
+                style={{
+                  backgroundColor: typeColors[item.type.name.toLowerCase()],
+                }}
+              >
+                {item.type.name}
+              </p>
+            ))}
+          </div>
         </Link>
       ))}
     </div>
   );
-}
+});
+
+export default List;
