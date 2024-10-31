@@ -2,13 +2,12 @@ import { detail } from "@/type/typeDetail";
 import { typeColors } from "@/utils/TypeColor";
 import Image from "next/image";
 import React from "react";
+import Descriptions from "./choice";
 interface PokemonDetailProps {
   pokemonDetail: detail | null;
   descriptions: string[];
-  desChoice: number;
   disadvantage: string[];
   genera: string | null;
-  setDesChoice: (index: number) => void;
 }
 
 export const PokemonDetail: React.FC<PokemonDetailProps> = ({
@@ -16,8 +15,6 @@ export const PokemonDetail: React.FC<PokemonDetailProps> = ({
   descriptions,
   genera,
   disadvantage,
-  desChoice,
-  setDesChoice,
 }) => {
   return (
     <div className="mainDetail">
@@ -88,36 +85,7 @@ export const PokemonDetail: React.FC<PokemonDetailProps> = ({
         </div>
       </div>
       <div className="secondDetail">
-        <div className="descript">
-          <p className="name" style={{ padding: "0 3rem" }}>
-            descript
-          </p>
-          {Array.from({ length: descriptions.length }, (_, index) => (
-            <button
-              className="des"
-              key={index}
-              style={
-                index == desChoice
-                  ? {
-                      filter: "drop-shadow(0 0 1rem rgb(14 0 255))",
-                      borderRadius: "50%",
-                    }
-                  : {}
-              }
-              onClick={() => setDesChoice(index)}
-            >
-              <Image
-                src="/random_center_bg.png"
-                alt=""
-                width={50}
-                height={50}
-              />
-            </button>
-          ))}
-          <span style={{ fontSize: "x-large", margin: "3% 1%" }}>
-            {descriptions[desChoice]}
-          </span>
-        </div>
+        <Descriptions description={descriptions} />
         <div className="stat">
           <p className="name" style={{ width: "100%", padding: "5px 0" }}>
             stat

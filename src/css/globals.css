@@ -126,6 +126,7 @@ path{
   text-align: center;
   border-radius: 5% 5% 100% 100%;
   font-size: xx-large;
+  min-height: 1.5rem; 
   text-shadow: 1px 1px 2px var(--color), 0 0 1em blue, 0 0 0.2em blue;
 }
 .chain .section .aboutPoke::after {
@@ -167,6 +168,7 @@ path{
   margin-top: 5%;
   justify-content: space-between;
 }
+
 .path{
   width: 30%;
   font-size: x-large;

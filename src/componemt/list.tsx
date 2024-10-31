@@ -20,7 +20,7 @@ const List = memo((props: Props) => {
             <Image
               width={100}
               height={100}
-              priority={true}
+              loading="lazy"
               sizes="100vw"
               src={
                 element.sprites.other["official-artwork"].front_default || ""

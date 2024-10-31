@@ -69,7 +69,7 @@ export const getSpeciesDetails = async (url: string) => {
   } catch (error) {
     console.error("Error fetching species details:", error);
     return {
-      genera: null,
+      genera: "",
       chainPokemon: [],
       highEvolution: [],
       descriptions: [],
