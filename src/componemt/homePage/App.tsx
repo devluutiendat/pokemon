@@ -16,7 +16,7 @@ const App: React.FC<AppProps> = ({ results, next, random }) => {
   const [formart, setformart] = useState<boolean>(true);
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
   const [nextUrl, setNextUrl] = useState<string | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
+  const [loading, setLoading] = useState<boolean>(false);
   const [defaultPokeRandom, setdefaultPokeRadom] = useState<Pokemon[]>([]);
   const [radomnumber, setradomnumber] = useState<number[]>([]);
   const [radomPokemon, setradomPokemon] = useState<Pokemon[]>([]);
@@ -66,14 +66,12 @@ const App: React.FC<AppProps> = ({ results, next, random }) => {
   const changeFormart = () => {
     setformart((prev) => {
       if (prev) {
-        fetchPokemon("https://pokeapi.co/api/v2/pokemon?limit=10&offset=0");
-      } else {
         fetchRandom();
+      } else {
+        setPokemons(results);
       }
       return !prev;
     });
-    setPokemons(results);
-    setradomPokemon([]);
   };
 
   return (

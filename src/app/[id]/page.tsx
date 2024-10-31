@@ -10,10 +10,18 @@ export default async function detailPage({
 }: {
   params: { id: string };
 }) {
-  const details = await fetchPokemonDetail(params.id);
-  const disadvantage = await fetchDisadvantage(details);
-  const { descriptions, chainPokemon, highEvolution, genera } =
-    await getSpeciesDetails(details.species.url);
+  const detailPromise = fetchPokemonDetail(params.id);
+  console.log(typeof detailPromise);
+
+  const speciesDetailsPromise = detailPromise.then((details) =>
+    getSpeciesDetails(details.species.url)
+  );
+
+  const details = await detailPromise;
+  const disadvantagePromise = fetchDisadvantage(details);
+
+  const [disadvantage, { descriptions, chainPokemon, highEvolution, genera }] =
+    await Promise.all([disadvantagePromise, speciesDetailsPromise]);
 
   return (
     <Detail
