@@ -2,7 +2,7 @@ import { detail } from "@/type/typeDetail";
 import { typeColors } from "@/utils/TypeColor";
 import Image from "next/image";
 import React from "react";
-import Descriptions from "./choice";
+import Descriptions from "./Choice";
 interface PokemonDetailProps {
   pokemonDetail: detail | null;
   descriptions: string[];
