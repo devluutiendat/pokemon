@@ -59,7 +59,7 @@ export const PokemonDetail: React.FC<PokemonDetailProps> = ({
             src={
               pokemonDetail
                 ? pokemonDetail?.sprites.other["official-artwork"].front_default
-                : "/random_center_bg.png"
+                : "/random_center_bg.webp"
             }
           />
         </div>

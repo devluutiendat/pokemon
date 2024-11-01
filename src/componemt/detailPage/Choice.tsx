@@ -26,7 +26,7 @@ const Descriptions: React.FC<DescriptionsProps> = ({ description }) => {
           }
           onClick={() => setDesChoice(index)}
         >
-          <Image src="/random_center_bg.png" alt="" width={50} height={50} />
+          <Image src="/random_center_bg.webp" alt="" width={50} height={50} />
         </button>
       ))}
       <span style={{ fontSize: "x-large", margin: "3% 1%" }}>

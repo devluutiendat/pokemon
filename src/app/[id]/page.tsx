@@ -12,17 +12,49 @@ export default async function detailPage({
 }: {
   params: { id: string };
 }) {
-  const detailPromise = fetchPokemonDetail(params.id);
+  let details;
+  let disadvantage;
+  let descriptions;
+  let chainPokemon;
+  let highEvolution;
+  let genera;
 
-  const speciesDetailsPromise = detailPromise.then((details) =>
-    getSpeciesDetails(details.species.url)
-  );
+  try {
+    details = await fetchPokemonDetail(params.id);
+  } catch (error) {
+    console.error("Error fetching Pokemon details:", error);
+    return <div>Error fetching Pokemon details.</div>;
+  }
 
-  const details = await detailPromise;
-  const disadvantagePromise = fetchDisadvantage(details);
+  let speciesDetailsPromise;
 
-  const [disadvantage, { descriptions, chainPokemon, highEvolution, genera }] =
-    await Promise.all([disadvantagePromise, speciesDetailsPromise]);
+  try {
+    speciesDetailsPromise = getSpeciesDetails(details.species.url);
+  } catch (error) {
+    console.error("Error fetching species details:", error);
+    // Handle the error accordingly
+    return <div>Error fetching species details.</div>;
+  }
+
+  try {
+    disadvantage = await fetchDisadvantage(details);
+  } catch (error) {
+    console.error("Error fetching disadvantages:");
+    // Handle the error accordingly
+    return <div>Error fetching disadvantages.</div>;
+  }
+
+  try {
+    const speciesDetails = await speciesDetailsPromise;
+    descriptions = speciesDetails.descriptions;
+    chainPokemon = speciesDetails.chainPokemon;
+    highEvolution = speciesDetails.highEvolution;
+    genera = speciesDetails.genera;
+  } catch (error) {
+    console.error("Error resolving species details:");
+    // Handle the error accordingly
+    return <div>Error resolving species details.</div>;
+  }
 
   return (
     <Detail
