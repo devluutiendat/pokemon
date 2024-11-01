@@ -44,9 +44,7 @@ const App: React.FC<AppProps> = ({ results, next, random }) => {
       const requests = randomIds.map((id: number) => fetchPokemonById(`${id}`));
       const responses = await Promise.all(requests);
       setradomPokemon((prev) => [...prev, ...responses]);
-      if (radomnumber.length == 0) {
-        setdefaultPokeRadom(responses);
-      }
+      ``;
     } catch (error) {
       console.error("Error fetching random Pokémon:", error);
     }
@@ -79,30 +77,9 @@ const App: React.FC<AppProps> = ({ results, next, random }) => {
       <p className="name">từ điển pokemon</p>
       <Radomlist pokemons={defaultPokeRandom} />
       <div className="search">
-        <div
-          style={{
-            width: "300px",
-            position: "relative",
-            display: "flex",
-            alignItems: "center",
-            height: "auto",
-          }}
-        >
-          <input
-            ref={searchRef}
-            type="text"
-            style={{ textAlign: "left", color: "aqua" }}
-            placeholder="enter id"
-          />
-          <Link
-            style={{
-              position: "absolute",
-              right: "5%",
-              filter: "drop-shadow(0 0 0.75rem rgb(89 173 214))",
-              fontSize: "xx-large",
-            }}
-            href={`/${searchRef.current?.value}`}
-          >
+        <div>
+          <input ref={searchRef} type="text" placeholder="enter id" />
+          <Link href={`/${searchRef.current?.value}`}>
             <CiSearch />
           </Link>
         </div>

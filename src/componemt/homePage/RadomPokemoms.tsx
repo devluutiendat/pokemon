@@ -8,7 +8,7 @@ export const Radomlist = memo((props: Props) => {
   let x = 2;
   const width = useWidthScreen();
   return (
-    <div className="radom">
+    <div className="random">
       {pokemons.map((element, index) => {
         if (index % 3 === 0) {
           x -= 1;

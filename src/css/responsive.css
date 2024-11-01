@@ -1,8 +1,8 @@
 
   
   @media (max-width: 768px) {
-    .radom {
-      grid-template-columns: repeat(5, 1fr); /* 3 columns for smaller screens */
+    .random {
+      grid-template-columns: repeat(5, 1fr) !important;
     }
     .search{
         flex-wrap:wrap ;
@@ -57,7 +57,7 @@
       flex-direction: column;
     }
     .radom {
-      grid-template-columns: 1fr; /* 1 column for mobile devices */
+      grid-template-columns: 1fr !important; /* 1 column for mobile devices */
     }
     .detail .typeDetail {
       width: 100%;

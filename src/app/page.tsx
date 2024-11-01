@@ -1,6 +1,7 @@
 import App from "@/componemt/homePage/App";
 import { fetchPokemonById, fetchPokemonListByLink } from "@/services/Pokemon";
 import { handleRandom } from "@/utils/RadomNumber";
+import "../css/home.css";
 
 export default async function HomePage() {
   // Fetch the initial list of Pokémon

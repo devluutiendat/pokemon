@@ -1,4 +1,6 @@
 import Detail from "@/componemt/detailPage/App";
+import "@/css/detail.css";
+
 import {
   fetchDisadvantage,
   fetchPokemonDetail,
@@ -11,7 +13,6 @@ export default async function detailPage({
   params: { id: string };
 }) {
   const detailPromise = fetchPokemonDetail(params.id);
-  console.log(typeof detailPromise);
 
   const speciesDetailsPromise = detailPromise.then((details) =>
     getSpeciesDetails(details.species.url)

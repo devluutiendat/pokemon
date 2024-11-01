@@ -41,7 +41,9 @@ export const fetchDisadvantage = async (pokemonDetail: detail | null) => {
         x2.includes(element) || // Element is a disadvantage against the next type
         (!x1_2.includes(element) && !x0.includes(element)) // Element is not a half or no damage type
       ) {
-        disadvantages.push(element);
+        if (!disadvantages.includes(element)) {
+          disadvantages.push(element);
+        }
       }
     });
   }

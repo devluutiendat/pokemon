@@ -1,0 +1,41 @@
+
+.random{
+    display:grid;
+    align-items: center;
+    grid-template-columns: auto auto auto auto auto auto auto;
+    grid-template-rows: auto auto;
+  }
+  
+.none{
+    display: none;
+  }
+  
+.search{
+    margin: 5% ;
+    display:  flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 90%;
+    gap: 1rem;
+  }
+  .search div{
+    width: 300px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: auto;
+  }
+  .search input {  
+    text-align: left;
+    color: aqua;
+    padding: 1rem 3rem; 
+    width: 100%; 
+    max-width: 400px; 
+    border-radius: 50px;
+  }
+  .search a{
+    position: absolute;
+    right: 5%;
+    filter:drop-shadow(0 0 0.75rem rgb(89 173 214)) ;
+    font-size: xx-large;
+  }

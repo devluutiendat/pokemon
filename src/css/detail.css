@@ -1,0 +1,133 @@
+
+.chain .section .aboutPoke::after {
+    content: ">>";
+    width: 100%;
+    position: absolute;
+    color: aquamarine;
+    top: 50%;
+    right: -65%;
+    font-size: xxx-large;
+  }
+  
+.chain .section .aboutPoke{
+    position: relative;
+    margin-right: 5rem;
+  }
+  .chain .section .aboutPoke:last-child::after {
+    content: "";
+    display: inline-block;
+    width: 50%;
+    position: absolute;
+    color: aquamarine;
+    top: 0;
+    right: 0;
+  }
+  
+.mainDetail{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+.secondDetail{
+    display: flex;
+  }
+  
+.typeDetail{
+    width: 25%;
+  }
+  .detail .type{
+    padding: 3% 10%;
+    margin: 3%;
+  }
+  
+.groupType{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 20px 0;
+    justify-content: space-around;
+  }
+  
+.base div{
+    font-size: x-large;
+    margin: 5%;
+  }
+  .base{
+    width: 25%;
+    height: 100%;
+    gap: 10px;
+    align-content: space-around;
+    display: grid;
+    align-items: baseline;
+    grid-template-columns: auto  auto;
+  }
+  .detail .name{
+    padding: 0;
+  }
+  
+.stat{
+    display: flex;
+    text-align: center;
+    width:55%;
+    flex-wrap: wrap;
+    margin-left: 5%;
+  }
+  .stat div{
+    width: 16%;
+  }
+  
+.detail img{
+    padding: 20px;
+    background-image: url('/random_center_bg.webp');
+    background-size: cover;
+    display: flex;
+    max-width: 350px;
+    justify-content: center; 
+    width: 100%;
+    height: auto;
+  }
+  .detail{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10%;
+    width: 100%;
+  }
+  
+.descript{
+    width: 40%;
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 1%;
+    padding: 0 3%;
+  }
+  .des{
+    background: transparent;
+    border: transparent;
+    height: 50px;
+  }
+  
+path{
+    color: var(--color);
+  }
+  
+.headdetail {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-top: 5%;
+    justify-content: space-between;
+  }
+  
+.path{
+    width: 30%;
+    font-size: x-large;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10%;
+    padding: 1%;
+    border: 1px solid var(--color);
+    border-radius: 50px;
+    box-shadow: 0 0 15px 3px rgb(89 173 214 /0.8);
+  }
