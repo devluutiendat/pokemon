@@ -23,12 +23,12 @@ export default function RootLayout({
           as="image"
           type="image/webp"
         />
-        {/* <link
+        <link
           rel="preload"
           href="/random_center_bg.webp"
           as="image"
           type="image/webp"
-        /> */}
+        />
       </head>
       <body className={inter.className}>{children}</body>
     </html>

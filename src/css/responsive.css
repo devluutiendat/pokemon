@@ -10,11 +10,14 @@
     .about{
         width: 30%;
     }
+    .name{
+      font-size: x-large !important;
+    }
     .path{
-      font-size: large;
+      font-size: large !important;
     }
     .base div{
-      font-size:large;
+      font-size:large !important;
     }
     .detail .type{
       margin: 0;
@@ -67,7 +70,10 @@
     }
     
     .chain .section .aboutPoke::after {
-      content: "" ;
+      content: "" !important;
+    }
+    .chain .section .aboutPoke {
+      margin-right: 0 !important;
     }
     .path{
       flex-wrap: wrap;

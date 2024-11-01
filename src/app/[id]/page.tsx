@@ -1,60 +1,48 @@
 import Detail from "@/componemt/detailPage/App";
 import "@/css/detail.css";
-
 import {
   fetchDisadvantage,
   fetchPokemonDetail,
   getSpeciesDetails,
 } from "@/services/PokemonDetails";
 
+export async function generateMetadata({ params }: { params: { id: string } }) {
+  const details = await fetchPokemonDetail(params.id);
+  const species = await getSpeciesDetails(details.species.url);
+
+  return {
+    title: `${details.name} - ${species.genera}`,
+    description: `${species.genera} - Learn about ${details.name}'s abilities, stats, and evolutions.`,
+    openGraph: {
+      title: `${details.name}`,
+      description: `${species.genera} - Learn about ${details.name}'s abilities, stats, and evolutions.`,
+      images: [
+        {
+          url: details.sprites.other["official-artwork"].front_default,
+          width: 800,
+          height: 800,
+          alt: `${details.name} image`,
+        },
+      ],
+    },
+  };
+}
+
 export default async function detailPage({
   params,
 }: {
   params: { id: string };
 }) {
-  let details;
-  let disadvantage;
-  let descriptions;
-  let chainPokemon;
-  let highEvolution;
-  let genera;
+  const detailPromise = fetchPokemonDetail(params.id);
+  const speciesDetailsPromise = detailPromise.then((details) =>
+    getSpeciesDetails(details.species.url)
+  );
 
-  try {
-    details = await fetchPokemonDetail(params.id);
-  } catch (error) {
-    console.error("Error fetching Pokemon details:", error);
-    return <div>Error fetching Pokemon details.</div>;
-  }
+  const details = await detailPromise;
+  const disadvantagePromise = fetchDisadvantage(details);
 
-  let speciesDetailsPromise;
-
-  try {
-    speciesDetailsPromise = getSpeciesDetails(details.species.url);
-  } catch (error) {
-    console.error("Error fetching species details:", error);
-    // Handle the error accordingly
-    return <div>Error fetching species details.</div>;
-  }
-
-  try {
-    disadvantage = await fetchDisadvantage(details);
-  } catch (error) {
-    console.error("Error fetching disadvantages:");
-    // Handle the error accordingly
-    return <div>Error fetching disadvantages.</div>;
-  }
-
-  try {
-    const speciesDetails = await speciesDetailsPromise;
-    descriptions = speciesDetails.descriptions;
-    chainPokemon = speciesDetails.chainPokemon;
-    highEvolution = speciesDetails.highEvolution;
-    genera = speciesDetails.genera;
-  } catch (error) {
-    console.error("Error resolving species details:");
-    // Handle the error accordingly
-    return <div>Error resolving species details.</div>;
-  }
+  const [disadvantage, { descriptions, chainPokemon, highEvolution, genera }] =
+    await Promise.all([disadvantagePromise, speciesDetailsPromise]);
 
   return (
     <Detail
