@@ -16,6 +16,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      {" "}
+      <head>
+        {/* Preload the background image */}
+        <link
+          rel="preload"
+          href="/backgroundMain.webp" // Path to your background image
+          as="image"
+          type="image/webp"
+        />
+      </head>
       <body className={inter.className}>{children}</body>
     </html>
   );
