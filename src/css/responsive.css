@@ -6,6 +6,7 @@
     }
     .search{
         flex-wrap:wrap ;
+        align-content: center;
     }
     .about{
         width: 30%;
