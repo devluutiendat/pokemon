@@ -9,7 +9,6 @@ import {
 export async function generateMetadata({ params }: { params: { id: string } }) {
   const details = await fetchPokemonDetail(params.id);
   const species = await getSpeciesDetails(details.species.url);
-
   return {
     title: `${details.name} - ${species.genera}`,
     description: `${species.genera} - Learn about ${details.name}'s abilities, stats, and evolutions.`,
@@ -43,15 +42,25 @@ export default async function detailPage({
 
   const [disadvantage, { descriptions, chainPokemon, highEvolution, genera }] =
     await Promise.all([disadvantagePromise, speciesDetailsPromise]);
-
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: details.name,
+    image: details.sprites.other["official-artwork"].front_default,
+    description: `${genera} - Learn about ${details.name}'s abilities, stats, and evolutions.`,
+    url: `https://pokeapi.co/api/v2/pokemon/${params.id}`,
+  };
   return (
-    <Detail
-      pokemonDetail={details}
-      disadvantages={disadvantage}
-      descriptions={descriptions}
-      chain={chainPokemon}
-      highEvolution={highEvolution}
-      genera={genera}
-    />
+    <>
+      <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+      <Detail
+        pokemonDetail={details}
+        disadvantages={disadvantage}
+        descriptions={descriptions}
+        chain={chainPokemon}
+        highEvolution={highEvolution}
+        genera={genera}
+      />
+    </>
   );
 }
