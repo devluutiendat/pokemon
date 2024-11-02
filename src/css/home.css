@@ -18,9 +18,11 @@
     width: 90%;
     gap: 1rem;
     height: auto;
+    min-height: 200px;
   }
   .search div{
     width: 300px;
+    min-height: 60px;
     position: relative;
     display: flex;
     align-items: center;
@@ -39,4 +41,5 @@
     right: 5%;
     filter:drop-shadow(0 0 0.75rem rgb(89 173 214)) ;
     font-size: xx-large;
+    font-size: 2rem;
   }

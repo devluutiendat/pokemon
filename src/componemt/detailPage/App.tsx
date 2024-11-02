@@ -25,13 +25,11 @@ const Detail: React.FC<AppProps> = ({
   return (
     <div className="App">
       <div className="headdetail">
-        <div className="path">
-          <Link href={`/${pokemonDetail.id - 1}`}>
-            <FaArrowLeftLong />
-          </Link>
+        <Link className="path" href={`/${pokemonDetail.id - 1}`}>
+          <FaArrowLeftLong />
           <p>{pokemonDetail ? formatId(pokemonDetail?.id) : ""}</p>
           <p>{pokemonDetail?.name}</p>
-        </div>
+        </Link>
         <div>
           <p style={{ fontSize: "xx-large" }}>
             {pokemonDetail ? formatId(pokemonDetail?.id) : ""}
@@ -40,13 +38,11 @@ const Detail: React.FC<AppProps> = ({
             {pokemonDetail?.name}
           </p>
         </div>
-        <div className="path">
+        <Link className="path" href={`/${pokemonDetail.id + 1}`}>
           <p>{pokemonDetail?.name}</p>
           <p>{pokemonDetail ? formatId(pokemonDetail?.id) : ""}</p>
-          <Link href={`/${pokemonDetail.id + 1}`}>
-            <FaArrowRight />{" "}
-          </Link>
-        </div>
+          <FaArrowRight />{" "}
+        </Link>
       </div>
       <PokemonDetail
         disadvantage={disadvantages}

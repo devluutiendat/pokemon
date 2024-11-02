@@ -8,6 +8,7 @@ export async function generateMetadata() {
     return {
       title: "Pokémons",
       description: "Get more information about the pokemon you like.",
+      metadataBase: new URL("http://localhost:3000"),
       openGraph: {
         title: "Pokémons",
         description: "Get more information about the pokemon you like.",
@@ -61,7 +62,10 @@ export default async function HomePage() {
 
   return (
     <>
-      <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <App results={results} next={next} random={randomResponses} />
     </>
   );

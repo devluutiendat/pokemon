@@ -13,7 +13,7 @@ const Descriptions: React.FC<DescriptionsProps> = ({ description }) => {
         descript
       </p>
       {Array.from({ length: description.length }, (_, index) => (
-        <button
+        <Image
           className="des"
           key={index}
           style={
@@ -25,9 +25,11 @@ const Descriptions: React.FC<DescriptionsProps> = ({ description }) => {
               : {}
           }
           onClick={() => setDesChoice(index)}
-        >
-          <Image src="/random_center_bg.webp" alt="" width={50} height={50} />
-        </button>
+          src="/random_center_bg.webp"
+          alt=""
+          width={50}
+          height={50}
+        />
       ))}
       <span style={{ fontSize: "x-large", margin: "3% 1%" }}>
         {description[desChoice]}

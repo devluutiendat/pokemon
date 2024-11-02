@@ -59,7 +59,7 @@
     .detail{
       flex-direction: column;
     }
-    .radom {
+    .random {
       grid-template-columns: 1fr !important; /* 1 column for mobile devices */
     }
     .detail .typeDetail {

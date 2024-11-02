@@ -59,6 +59,7 @@ const App: React.FC<AppProps> = ({ results, next, random }) => {
     setNextUrl(next);
     setdefaultPokeRadom(random);
     setPokemons(results);
+    console.log(1);
   }, []);
 
   const changeFormart = () => {

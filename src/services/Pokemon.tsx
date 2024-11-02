@@ -13,6 +13,7 @@ export const fetchPokemonListByLink = async (url: string) => {
       return pokeRes;
     })
   );
+
   return {
     results: pokemonData,
     next: response.data.next,

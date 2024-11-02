@@ -11,6 +11,7 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
   const species = await getSpeciesDetails(details.species.url);
   return {
     title: `${details.name} - ${species.genera}`,
+    metadataBase: new URL("http://localhost:3000"),
     description: `${species.genera} - Learn about ${details.name}'s abilities, stats, and evolutions.`,
     openGraph: {
       title: `${details.name}`,
@@ -52,7 +53,10 @@ export default async function detailPage({
   };
   return (
     <>
-      <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Detail
         pokemonDetail={details}
         disadvantages={disadvantage}
