@@ -2,7 +2,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Pokemon } from "../../type/typeDefault";
 import Radomlist from "./RadomPokemoms";
-import List from "../List";
+import List from "../pokeList";
 import { CiSearch } from "react-icons/ci";
 import { handleRandom } from "@/utils/RadomNumber";
 import { fetchPokemonById, fetchPokemonListByLink } from "@/services/Pokemon";

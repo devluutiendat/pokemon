@@ -2,7 +2,7 @@ import { Pokemon } from "@/type/typeDefault";
 import { detail } from "@/type/typeDetail";
 import Link from "next/link";
 import { formatId } from "@/utils/FormartId";
-import List from "@/componemt/List";
+import List from "@/componemt/pokeList";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { FaArrowRight } from "react-icons/fa6";
 import PokemonDetail from "@/componemt/detailPage/Detail";
