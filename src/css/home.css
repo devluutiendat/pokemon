@@ -36,6 +36,10 @@
     max-width: 400px; 
     border-radius: 50px;
   }
+  .search path{
+    color: rgb(6, 148, 148);
+    filter: drop-shadow(0 0 0.75rem rgb(89 173 214));
+  }
   .search a{
     position: absolute;
     right: 5%;

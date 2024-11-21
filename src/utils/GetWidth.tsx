@@ -1,6 +1,8 @@
 "use client";
+
 import { useState, useEffect } from "react";
 
+// Custom hook to track screen width
 export const useWidthScreen = () => {
   const [width, setWidth] = useState(
     typeof window !== "undefined" ? window.innerWidth : 0
@@ -23,28 +25,22 @@ export const useWidthScreen = () => {
 const ClientStyles: React.FC = () => {
   const width = useWidthScreen();
 
-  const handleLoad = (e: React.SyntheticEvent<HTMLLinkElement>) => {
-    e.currentTarget.media = "all";
-    console.log("Stylesheet loaded successfully");
+  useEffect(() => {
+    const addStylesheet = (href: string) => {
+      const link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.href = href;
+      link.media = "all";
+      document.head.appendChild(link);
+    };
 
-    // Load another stylesheet if the width is greater than 768
-    if (width > 768) {
-      const newLink = document.createElement("link");
-      newLink.rel = "stylesheet";
-      newLink.href = "/css/large-screen.css";
-      newLink.media = "all";
-      document.head.appendChild(newLink);
+    // Dynamically load stylesheets based on screen width
+    if (width <= 768) {
+      addStylesheet("../css/responsive.css");
     }
-  };
+  }, [width]); // Trigger this effect whenever `width` changes
 
-  return (
-    <link
-      rel="stylesheet"
-      href="/css/responsive.css"
-      media="print"
-      onLoad={handleLoad}
-    />
-  );
+  return null; // No need to return any JSX since styles are dynamically added
 };
 
 export default ClientStyles;

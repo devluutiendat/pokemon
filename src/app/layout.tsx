@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "../css/globals.css";
-import ClientStyles, { useWidthScreen } from "@/utils/GetWidth";
+import "../css/responsive.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -29,7 +29,6 @@ export default function RootLayout({
           as="image"
           type="image/webp"
         />
-        <ClientStyles />
       </head>
       <body className={inter.className}>{children}</body>
     </html>

@@ -20,7 +20,7 @@ const App: React.FC<AppProps> = ({ results, next, random }) => {
   const [defaultPokeRandom, setdefaultPokeRadom] = useState<Pokemon[]>([]);
   const [radomnumber, setradomnumber] = useState<number[]>([]);
   const [radomPokemon, setradomPokemon] = useState<Pokemon[]>([]);
-  const searchRef = useRef<HTMLInputElement>(null);
+  const [searchValue, setSearchValue] = useState<string>("");
   const fetchPokemon = async (url: string) => {
     setLoading(true);
     try {
@@ -55,6 +55,11 @@ const App: React.FC<AppProps> = ({ results, next, random }) => {
       fetchPokemon(nextUrl);
     }
   };
+
+  const onChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
+    setSearchValue(e.target.value);
+  };
+
   useEffect(() => {
     setNextUrl(next);
     setdefaultPokeRadom(random);
@@ -78,8 +83,8 @@ const App: React.FC<AppProps> = ({ results, next, random }) => {
       <Radomlist pokemons={defaultPokeRandom} />
       <div className="search">
         <div>
-          <input ref={searchRef} type="text" placeholder="enter id" />
-          <Link href={`/${searchRef.current?.value}`}>
+          <input onChange={onChange} type="text" placeholder="enter id" />
+          <Link href={`/${searchValue}`}>
             <CiSearch />
           </Link>
         </div>

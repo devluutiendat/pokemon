@@ -4,7 +4,6 @@ import { formatId } from "@/utils/FormartId";
 import Link from "next/link";
 import Image from "next/image";
 import { memo } from "react";
-
 const List = memo((props: Props) => {
   const { pokemons } = props;
 
@@ -12,7 +11,7 @@ const List = memo((props: Props) => {
     <div className="section">
       {pokemons.map((element) => (
         <Link
-          href={`/${element.id}`} // Using anchor tag with href for SEO-friendly links
+          href={`/${element.id}`}
           className="aboutPoke about"
           key={element.id}
         >
